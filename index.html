@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#100907">
+  <meta name="description" content="Des phénomènes scientifiques transformés en œuvres interactives utilisant les capteurs du téléphone.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>PHÉNOMÈNES — Science vivante</title>
+</head>
+<body>
+  <canvas id="art" aria-label="Œuvre scientifique interactive"></canvas>
+  <video id="camera" playsinline muted></video>
+
+  <header class="topbar">
+    <button id="aboutButton" class="brand" aria-label="À propos de PHÉNOMÈNES">
+      <img src="./icons/icon-192.png" alt="">
+      <span>PHÉNOMÈNES</span>
+    </button>
+    <div class="top-actions">
+      <button id="installButton" class="pill primary" hidden>Installer</button>
+      <button id="scienceButton" class="pill" aria-pressed="false">Comprendre</button>
+    </div>
+  </header>
+
+  <main class="scene-copy" aria-live="polite">
+    <div class="scene-meta">
+      <span id="sceneNumber">01 / 06</span>
+      <span id="dailyBadge" class="daily-badge">ŒUVRE DU JOUR</span>
+    </div>
+    <h1 id="sceneTitle">Résonance</h1>
+    <p id="scenePoem">Des étoiles chantent ensemble. Leur lumière s’assemble en ondes visibles selon la distance et le regard.</p>
+  </main>
+
+  <div id="permissionCard" class="permission-card" hidden>
+    <p id="permissionText"></p>
+    <button id="permissionButton" class="permission-button">Activer</button>
+  </div>
+
+  <aside id="sciencePanel" class="side-panel right" aria-hidden="true">
+    <button class="close-button" data-close aria-label="Fermer">×</button>
+    <p class="eyebrow">SOUS L’ŒUVRE</p>
+    <h2 id="scienceTitle"></h2>
+    <p id="scienceText"></p>
+    <div id="scienceFormula" class="formula"></div>
+    <p id="gestureHelp" class="gesture-help"></p>
+    <div class="sensor-note"><span></span><p id="sensorNote"></p></div>
+  </aside>
+
+  <aside id="aboutPanel" class="side-panel left" aria-hidden="true">
+    <button class="close-button" data-close aria-label="Fermer">×</button>
+    <img class="about-icon" src="./icons/icon-512.png" alt="Icône PHÉNOMÈNES">
+    <p class="eyebrow">LE PROJET</p>
+    <h2>Faire ressentir avant d’expliquer.</h2>
+    <p>PHÉNOMÈNES transforme les lois scientifiques en matières visuelles. Chaque œuvre existe à la frontière entre démonstration, contemplation et jeu.</p>
+    <p>Le microphone et la caméra ne servent qu’à générer l’image en direct. Ils sont arrêtés automatiquement dès que tu quittes l’œuvre concernée. Aucun son, aucune image, aucune vidéo brute n’est enregistrée ni envoyée.</p>
+    <p class="small">Version expérimentale gratuite et hors ligne. Seuls les fichiers de l’application sont mis en cache localement pour fonctionner hors ligne ; aucune donnée issue des capteurs n’est conservée.</p>
+  </aside>
+
+  <nav id="sceneNav" class="bottom-nav" aria-label="Choisir une œuvre">
+    <button class="scene-button active" data-scene="waves"><b>01</b><span>Ondes</span></button>
+    <button class="scene-button" data-scene="field"><b>02</b><span>Filtre</span></button>
+    <button class="scene-button" data-scene="coriolis"><b>03</b><span>Coriolis</span></button>
+    <button class="scene-button" data-scene="gravity"><b>04</b><span>Gravité</span></button>
+    <button class="scene-button" data-scene="sound"><b>05</b><span>Fleur</span></button>
+    <button class="scene-button" data-scene="camera"><b>06</b><span>Couleur</span></button>
+  </nav>
+
+  <div class="floating-actions">
+    <button id="hapticButton" class="round-button" aria-label="Activer ou désactiver les vibrations" aria-pressed="true">⌁</button>
+    <button id="variationButton" class="round-button" aria-label="Créer une nouvelle variation">↻</button>
+    <button id="captureButton" class="round-button" aria-label="Enregistrer l’œuvre">⇩</button>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
